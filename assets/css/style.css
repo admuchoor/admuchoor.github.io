@@ -1,0 +1,131 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+  --primary-light: #8bb9ff;
+  --primary-medium: #458fff;
+  --primary-dark: #234c8b;
+  --secondary-light: #baebba;
+  --secondary-medium: #8ddd8d;
+  --secondary-dark: #538a53;
+  --tertiary-light: #8fdaea;
+  --tertiary-medium: #69b6c6;
+  --tertiary-dark: #206463;
+  --white: #fff;
+  --gray: #9a9a9a;
+  --black: #2d2d2d;
+  --maize: #FFCB05;
+  --blue: #00274C;
+  --font-body: "Poppins", sans-serif;
+  /* --font-title: "Poppins", sans-serif; */
+  /* --font-body: "Lato", sans-serif; */
+  --font-title: "Futura", sans-serif;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--primary-medium);
+  transition: 0.5s;
+}
+
+a:hover, a:active, a:focus {
+  color: var(--secondary-medium);
+  outline: none;
+  text-decoration: none;
+}
+
+p {
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+
+
+/* Me Section
+-------------- */
+.me-content {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: var(--maize);
+}
+
+.me-content h1{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  color: var(--blue);
+  text-align: center;
+  font-size: 35px;
+}
+
+.me-content h3 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: var(--blue);
+  font-size: 18px;
+  text-align: center;
+}
+
+.me-content h4 {
+  color: var(--blue);
+  font-size: 16px;
+  text-align: center;
+}
+
+.me-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-radius: 50%;
+  width: 15em;
+  height:15em;
+}
+
+/* About Me Section
+--------------------*/
+.about-content {
+  background: var(--blue);
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+.about-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-content h3 {
+  color:var(--white);
+  font-size: 28x;
+}
+
+.about-content p {
+  font-size: 16px;
+  color: var(--white);
+}
+
+/* Timeline Section
+--------------------------------*/
+#timeline {
+  padding-top: 250px;
+  padding-bottom: 250px;
+  background: lightpink;
+}
+
+.section-header h3{
+  text-align: center;
+  color: white;
+}
