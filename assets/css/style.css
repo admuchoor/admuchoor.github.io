@@ -16,9 +16,9 @@
   --black: #2d2d2d;
   --maize: #FFCB05;
   --blue: #00274C;
-  --font-body: "Poppins", sans-serif;
+  /* --font-body: "Poppins", sans-serif; */
   /* --font-title: "Poppins", sans-serif; */
-  /* --font-body: "Lato", sans-serif; */
+  --font-body: "Lato", sans-serif;
   --font-title: "Futura", sans-serif;
 }
 
@@ -51,20 +51,18 @@ h1, h2, h3, h4 {
   padding: 0;
 }
 
-
-
 /* Me Section
 -------------- */
 .me-content {
   padding-top: 80px;
   padding-bottom: 80px;
-  background: var(--maize);
+  background: black;
 }
 
 .me-content h1{
   padding-top: 30px;
-  padding-bottom: 10px;
-  color: var(--blue);
+  padding-bottom: 30px;
+  color: var(--white);
   text-align: center;
   font-size: 35px;
 }
@@ -72,14 +70,8 @@ h1, h2, h3, h4 {
 .me-content h3 {
   padding-top: 30px;
   padding-bottom: 30px;
-  color: var(--blue);
+  color: var(--white);
   font-size: 18px;
-  text-align: center;
-}
-
-.me-content h4 {
-  color: var(--blue);
-  font-size: 16px;
   text-align: center;
 }
 
@@ -96,7 +88,7 @@ h1, h2, h3, h4 {
 /* About Me Section
 --------------------*/
 .about-content {
-  background: var(--blue);
+  background: var(--maize);
   padding-top: 250px;
   padding-bottom: 250px;
 }
@@ -125,7 +117,168 @@ h1, h2, h3, h4 {
   background: lightpink;
 }
 
-.section-header h3{
+#timeline h3{
+  text-align: center;
+  color: black;
+}
+
+/* Projects Section
+--------------------------------*/
+#projects {
+  background: #F25757;
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+#projects h3 {
   text-align: center;
   color: white;
+  padding-bottom: 40px;
+}
+
+#projects .box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0 10px 40px 10px;
+  background: var(--white);
+  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+#projects .box:hover {
+  transform: scale(1.1);
+}
+
+#projects .img img {
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+#projects .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+#projects .title a {
+  color: #111;
+}
+
+#projects .description {
+  font-size: 14px;
+  line-height: 28px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* Classes Section
+--------------------------------*/
+#faq {
+  padding-top: 250px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  background: black;
+}
+
+#faq h3 {
+  text-align: center;
+  color: white;
+  padding-bottom: 40px;
+}
+
+#faq #faq-list {
+  padding: 0;
+  list-style: none;
+}
+
+/* #faq #faq-list li {
+  border-bottom: 1px solid #ebebeb;
+} */
+
+#faq #faq-list a {
+  padding: 22px 0;
+  display: block;
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.faq-list a:hover, a:active, a:focus {
+  color: var(--primary-medium);
+}
+
+#faq #faq-list i {
+  font-size: 18px;
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
+#faq #faq-list p {
+  padding-left: 2em;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: var(--font-body);
+  color: gray;
+}
+
+#faq #faq-list a.collapsed {
+  color: white;
+  font-family: var(--font-body);
+}
+
+#faq #faq-list a.collapsed i::before {
+  content: "\f2c7" !important;
+}
+
+
+/* Footer
+----------- */
+#footer {
+  background: black;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#footer p {
+  text-align: center;
+  font-size: 18px;
+  color: var(--gray);
+}
+
+/* Back to top button */
+.back-to-top {
+  display: none;
+  /* background: var(--primary-medium); */
+  color: red;
+  /* width: 44px;
+  height: 44px; */
+  /* text-align: center;
+  line-height: 1; */
+  border-radius: 50%;
+  /* right: 15px;
+  bottom: 15px; */
+  transition: background 0.5s;
+  z-index: 11;
+  padding-left: 15px;
+}
+
+.back-to-top i {
+  padding-top: 12px;
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 15px;
+  }
 }
