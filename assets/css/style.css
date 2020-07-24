@@ -85,6 +85,15 @@ h1, h2, h3, h4 {
   height:15em;
 }
 
+/* .my-icon ion-icon {
+  color: var(--primary-medium);
+  font-size: 3.5vw;
+}
+
+.my-icon ion-icon:hover, ion-icon:active, ion-icon:focus {
+  color: var(--gray);
+} */
+
 /* About Me Section
 --------------------*/
 .about-content {
