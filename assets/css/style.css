@@ -26,6 +26,7 @@ body {
   background: var(--white);
   color: var(--black);
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 a {
@@ -100,6 +101,7 @@ h1, h2, h3, h4 {
   background: var(--maize);
   padding-top: 250px;
   padding-bottom: 250px;
+  padding-right: 100px;
 }
 
 .about-content img {
@@ -109,13 +111,13 @@ h1, h2, h3, h4 {
 }
 
 .about-content h3 {
-  color:var(--white);
+  color: var(--blue);
   font-size: 28x;
 }
 
 .about-content p {
   font-size: 16px;
-  color: var(--white);
+  color: black;
 }
 
 /* Timeline Section
