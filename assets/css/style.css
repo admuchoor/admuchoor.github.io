@@ -86,9 +86,9 @@ h1, h2, h3, h4 {
   height:15em;
 }
 
-.container ion-icon {
-  height: 20px;
-  width: 20px;
+.container a {
+  color: var(--primary-medium);
+  cursor: pointer;
 }
 
 .links {
@@ -102,7 +102,7 @@ h1, h2, h3, h4 {
   list-style-type: none;
 }
 
-.links a:hover {
+.container a:hover {
   color: gray;
 }
 /* .my-icon ion-icon {
