@@ -86,6 +86,25 @@ h1, h2, h3, h4 {
   height:15em;
 }
 
+.container ion-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.links {
+  text-align: center;
+}
+.links li {
+  display: inline-block;
+  margin: 10px;
+}
+.links ul {
+  list-style-type: none;
+}
+
+.links a:hover {
+  color: gray;
+}
 /* .my-icon ion-icon {
   color: var(--primary-medium);
   font-size: 3.5vw;
