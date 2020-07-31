@@ -303,7 +303,7 @@ h1, h2, h3, h4 {
 
 .back-to-top i {
   padding-top: 12px;
-  color: red;
+  color: var(--primary-medium);
 }
 
 @media (max-width: 768px) {
