@@ -141,6 +141,14 @@ h1, h2, h3, h4 {
   color: var(--maize);
 }
 
+@media (max-width: 991px) {
+  .about-content {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 /* Timeline Section
 --------------------------------*/
 #timeline {
