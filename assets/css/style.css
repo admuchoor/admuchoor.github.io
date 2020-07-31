@@ -106,14 +106,6 @@ h1, h2, h3, h4 {
 .me-content a:hover {
   color: gray;
 }
-/* .my-icon ion-icon {
-  color: var(--primary-medium);
-  font-size: 3.5vw;
-}
-
-.my-icon ion-icon:hover, ion-icon:active, ion-icon:focus {
-  color: var(--gray);
-} */
 
 /* About Me Section
 --------------------*/
@@ -150,7 +142,7 @@ h1, h2, h3, h4 {
 
 #timeline h3{
   text-align: center;
-  color: black;
+  color: var(--black);
 }
 
 /* Projects Section
@@ -179,10 +171,6 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-#projects .box:hover {
-  transform: scale(1.1);
-}
-
 #projects .img img {
   border-radius: 50%;
   width: 4em;
@@ -202,7 +190,11 @@ h1, h2, h3, h4 {
   color: #111;
 }
 
-#projects .description {
+#projects .title a:hover{
+  color: var(--primary-medium);
+}
+
+#projects p {
   font-size: 14px;
   line-height: 28px;
   margin-bottom: 0;
@@ -237,9 +229,6 @@ h1, h2, h3, h4 {
   list-style: none;
 }
 
-/* #faq #faq-list li {
-  border-bottom: 1px solid #ebebeb;
-} */
 
 #faq #faq-list a {
   padding: 22px 0;
@@ -264,6 +253,7 @@ h1, h2, h3, h4 {
 
 #faq #faq-list p {
   padding-left: 2em;
+  padding-right: 2em;
   margin-bottom: 20px;
   font-size: 18px;
   font-family: var(--font-body);
