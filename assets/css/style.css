@@ -93,12 +93,15 @@ h1, h2, h3, h4 {
 
 .links {
   text-align: center;
-  padding-top: 10px;
+  margin-right: 40px;
 }
+
 .links li {
   display: inline-block;
-  margin: 10px;
+  font-size: x-large;
+  padding: 10px;
 }
+
 .links ul {
   list-style-type: none;
 }
