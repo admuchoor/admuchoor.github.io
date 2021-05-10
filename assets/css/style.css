@@ -158,12 +158,12 @@ h1, h2, h3, h4, h6 {
 #timeline {
   padding-top: 250px;
   padding-bottom: 250px;
-  background: lightpink;
+  background: #F25757;
 }
 
 #timeline h3{
   text-align: center;
-  color: var(--black);
+  color: var(--white);
 }
 
 /* Members Testimonials Section
@@ -376,7 +376,7 @@ h1, h2, h3, h4, h6 {
   line-height: 1;
 }
 
-.faq-list a:hover, a:active, a:focus {
+#faq #faq-list a:hover {
   color: var(--primary-medium);
 }
 

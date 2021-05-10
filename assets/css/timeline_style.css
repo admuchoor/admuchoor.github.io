@@ -104,19 +104,19 @@ time,
 mark,
 audio,
 video,
-hr {
+/* hr {
 	margin: 0;
 	padding: 0;
 	border: 0
-}
+} */
 
 html {
 	box-sizing: border-box
 }
 
 body {
-	background-color: hsl(0, 0%, 100%);
-	background-color: var(--color-bg, white)
+	/* background-color: hsl(0, 0%, 100%);
+	background-color: var(--color-bg, white) */
 }
 
 article,
@@ -3731,8 +3731,7 @@ mark {
 }
 
 .cd-timeline__content h2 {
-	color: hsl(206, 21%, 24%);
-    color: var(--cd-color-1);
+    color: var(--primary-medium);
 	font-size: 22px;
 }
 
