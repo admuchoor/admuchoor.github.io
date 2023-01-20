@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splitty</title>
+</head>
+
+<body>
+    <p>
+        One day, I went to get food with some friends and I put my card down. I really did not want to go through the effort of figuring out how much each person owed after tax/tip, so I just decided to automate this in an easy (at least to me) way. Welcome to Splitty!
+    </p>
+    <h1>How many items were there?</h1>
+    <input id="numItems"> <br> <br>
+    <button id="button" onclick="getItems()">Submit</button>
+
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+            color: white;
+            list-style: none;
+        }
+        p {
+            margin-top: 5%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+    </style>
+    <h1 id="message"> </h1>
+
+    <!-- <script>
+        // Get the input field
+        var input = document.getElementById("numItems");
+        // Execute a function when the user presses a key on the keyboard
+        input.addEventListener("keypress", function(event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                document.getElementById("numItems").click();
+            }
+        });
+
+        $("#numItems").keypress(function(event) {
+            if (event.key=== "Return") {
+                $("#button").click();
+            }
+        });
+     </script>  -->
+
+     <script>
+        function getItems() {
+            let numItems = document.querySelector("#numItems");
+            
+            var subtotal = 0.0;
+            var people = {};
+            for (var i = 0; i < parseInt(numItems.value); i++) {
+                var cost = parseFloat(prompt("How much did item " + i + " cost?"));
+                console.log(cost);
+                subtotal += cost;
+                var splitted = prompt("Who split item " + i + " (comma separated names)?").split(',')
+                console.log(splitted);
+                
+                var price_per = cost / splitted.length;
+                for (const person of splitted) {
+                    if (person in people) {
+                        people[person] += price_per
+                    }
+                    else {
+                        people[person] = price_per
+                    }
+                }
+            }
+
+            var result = '<ul style="list-style: none;">';
+            var total = parseFloat(prompt("What was the total after tax/tip?"));
+            for (const person of splitted) {
+                const toFixed = (n, fixed) => `${n}`.match(new RegExp(`^-?\\d+(?:\.\\d{0,${fixed}})?`))[0];
+                result += "<li>" +  person + " owes $" + toFixed(people[person] / subtotal * total,2 ) + "</li>";
+            }
+            result += "</ul>";
+            
+            let message = document.querySelector("#message");
+            message.innerHTML = result;
+        }
+    </script>
+
+</html>
