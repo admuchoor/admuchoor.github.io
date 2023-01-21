@@ -76,7 +76,7 @@
 
             var result = '<ul style="list-style: none;">';
             var total = parseFloat(prompt("What was the total after tax/tip?"));
-            for (const person of people) {
+            for (var person in people) {
                 const toFixed = (n, fixed) => `${n}`.match(new RegExp(`^-?\\d+(?:\.\\d{0,${fixed}})?`))[0];
                 result += "<li>" +  person + " owes $" + toFixed(people[person] / subtotal * total,2 ) + "</li>";
             }
