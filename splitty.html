@@ -65,11 +65,12 @@
                 
                 var price_per = cost / splitted.length;
                 for (const person of splitted) {
-                    if (person in people) {
-                        people[person] += price_per
+                    let name = person.toLowerCase();
+                    if (name in people) {
+                        people[name] += price_per
                     }
                     else {
-                        people[person] = price_per
+                        people[name] = price_per
                     }
                 }
             }
