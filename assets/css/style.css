@@ -283,9 +283,9 @@ h1, h2, h3, h4, h6 {
 /* Projects Section
 --------------------------------*/
 #projects {
-  background: #F25757;
+  background: black;
   padding-top: 250px;
-  padding-bottom: 250px;
+  padding-bottom: 100px;
 }
 
 #projects h3 {
@@ -411,21 +411,19 @@ h1, h2, h3, h4, h6 {
 ----------- */
 #footer {
   background: black;
-  padding-top: 30px;
   padding-bottom: 30px;
 }
 
 #footer p {
   text-align: center;
   font-size: 18px;
-  color: var(--gray);
+  color: var(--white);
 }
 
 /* Back to top button */
 .back-to-top {
   display: none;
   /* background: var(--primary-medium); */
-  color: red;
   /* width: 44px;
   height: 44px; */
   /* text-align: center;
