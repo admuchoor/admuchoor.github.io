@@ -4,88 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Splitty</title>
+    
+    <link href="splitty_style.css" rel="stylesheet">
 </head>
 
 <body>
     <p>
-        One day, I went to get food with some friends and I put my card down. I really did not want to go through the effort of figuring out how much each person owed after tax/tip, so I just decided to automate this in an easy (at least to me) way. Welcome to Splitty!
+        One day, I went to get food with some friends and I put my card down to pay. 
+        There were multiple items and each item was split between a different subset of people, so 
+        I realized that figuring out how much each person owed was quite a tedious process. To solve
+        this problem, I decided to automate this process in an easy (at least to me) way. This is Splitty!
     </p>
+    <br><br>
     <h1>How many items were there?</h1>
     <input id="numItems"> <br> <br>
-    <button id="button" onclick="getItems()">Submit</button>
+    <button id="button" onclick="generateSpreadsheet()">Submit</button>
 
-    <style>
-        body {
-            background-color: black;
-            text-align: center;
-            color: white;
-            list-style: none;
-        }
-        p {
-            margin-top: 5%;
-            margin-left: 15%;
-            margin-right: 15%;
-        }
-    </style>
     <h1 id="message"> </h1>
+    
+    <p>
+        Note that for the purpose of calculating each person's share of the tax, tip, and other fees,
+        Splitty uses a "proportional split". For example, let's say Tom ordered hot wings that cost 
+        $8, and Jerry ordered a side dish that cost $2. This makes the subtotal $10. Now let's say 
+        the tax, tip, and additional fees were an extra $10. This makes the total $20. In my opinion, 
+        it doesn't seem fair for Jerry to have to pay half of the additional fees when they only got 
+        a side! <a href="https://www.youtube.com/watch?v=EYb9jnt2cv4" target="_blank"> Others may 
+        agree :)</a> Instead, they should be charged for the proportion of items that they bought.
+        If you fed this bill into Splitty, it would report that Tom owes $16 and that Jerry owes $4.
+    </p>
 
-    <!-- <script>
-        // Get the input field
-        var input = document.getElementById("numItems");
-        // Execute a function when the user presses a key on the keyboard
-        input.addEventListener("keypress", function(event) {
-            // If the user presses the "Enter" key on the keyboard
-            if (event.keyCode === 13) {
-                // Cancel the default action, if needed
-                event.preventDefault();
-                // Trigger the button element with a click
-                document.getElementById("numItems").click();
-            }
-        });
+    <script>
+        function generateSpreadsheet() {
+            var result = `
+                <table id="spreadsheet">
+                <tr>
+                <th></th>
+                <th>Price of Each Item (only input the number)</th>
+                <th>Who Split Each Item (comma separated names)</th>
+                <!-- Add more columns as needed -->
+                </tr>
+            `;
 
-        $("#numItems").keypress(function(event) {
-            if (event.key=== "Return") {
-                $("#button").click();
-            }
-        });
-     </script>  -->
-
-     <script>
-        function getItems() {
             let numItems = document.querySelector("#numItems");
-            
+            for (var i = 0; i < parseInt(numItems.value); i++) {
+                result += `
+                    <tr>
+                    <th>Item ${i + 1}</th>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <!-- Add more cells as needed -->
+                    </tr>
+                `;
+            }
+            var endTable = '</table>';
+            // var addRowStr = '<button id="button2" onclick="addRow()">Add Row</button>';
+
+            result += endTable; // + addRowStr;
+
+            var processButtonStr = '<button id="processButton" onclick="processItems()">Split The Bill!</button>';
+            result += processButtonStr;
+
+            let message = document.querySelector("#message");
+            message.innerHTML = result;
+        }
+
+        function processItems() {
+            const table = document.getElementById('spreadsheet');
+            const cells = table.getElementsByTagName('td');
+
             var subtotal = 0.0;
             var people = {};
-            for (var i = 0; i < parseInt(numItems.value); i++) {
-                var cost = parseFloat(prompt("How much did item " + i + " cost?"));
-                console.log(cost);
+            for (let i = 0; i < cells.length; i += 2) {
+                const cost = parseFloat(cells[i].innerText);
+                const splitted = cells[i+1].innerText.split(',');
+
                 subtotal += cost;
-                var splitted = prompt("Who split item " + i + " (comma separated names)?").split(',')
-                console.log(splitted);
                 
                 var price_per = cost / splitted.length;
                 for (const person of splitted) {
-                    let name = person.toLowerCase();
-                    if (name in people) {
-                        people[name] += price_per
+                    let name = person.toLowerCase().trim();
+                    if (!(name in people)) {
+                        people[name] = 0.0;
                     }
-                    else {
-                        people[name] = price_per
-                    }
+                    people[name] += price_per
                 }
             }
 
             var result = '<ul style="list-style: none;">';
             var total = parseFloat(prompt("What was the total after tax/tip?"));
             for (var person in people) {
-                const toFixed = (n, fixed) => `${n}`.match(new RegExp(`^-?\\d+(?:\.\\d{0,${fixed}})?`))[0];
-                result += "<li>" +  person + " owes $" + toFixed(people[person] / subtotal * total,2 ) + "</li>";
+                let this_split = people[person] / subtotal * total;
+                result += "<li>" +  person + " owes $" + this_split.toFixed(2) + "</li>";
             }
             result += "</ul>";
-            
+             
             let message = document.querySelector("#message");
             message.innerHTML = result;
         }
+
+        function addRow() {
+            let message = document.querySelector("#message");
+            let result = message.innerHTML;
+            let index = result.length - endTable.length - addRowStr.length;
+
+            result.substr(0, index) + newRow + result.substr(index);
+
+            message.innerHTML = result;
+        }
+
     </script>
 
 </html>

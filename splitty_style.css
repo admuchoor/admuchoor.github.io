@@ -1,0 +1,33 @@
+body {
+    background-color: black;
+    text-align: center;
+    color: white;
+    list-style: none;
+}
+p {
+    font-size: large;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+a {
+   color: blue; 
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: black;
+}
+th {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+}
+td {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+                  
