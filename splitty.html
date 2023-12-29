@@ -45,8 +45,8 @@
                 </tr>
             `;
 
-            let numItems = document.querySelector("#numItems");
-            for (var i = 0; i < parseInt(numItems.value); i++) {
+            NUM_ITEMS = parseInt(document.querySelector("#numItems").value);
+            for (var i = 0; i < NUM_ITEMS; i++) {
                 result += `
                     <tr>
                     <th>Item ${i + 1}</th>
@@ -56,13 +56,11 @@
                     </tr>
                 `;
             }
-            var endTable = '</table>';
-            // var addRowStr = '<button id="button2" onclick="addRow()">Add Row</button>';
 
-            result += endTable; // + addRowStr;
-
-            var processButtonStr = '<button id="processButton" onclick="processItems()">Split The Bill!</button>';
-            result += processButtonStr;
+            END_TABLE_STR = '</table>';
+            ADD_ROW_STR = '<button id="button2" onclick="addRow()">Add Row</button><br>';
+            PROCESS_BUTTON_STR = '<button id="processButton" onclick="processItems()">Split The Bill!</button>';
+            result += END_TABLE_STR + ADD_ROW_STR + PROCESS_BUTTON_STR;
 
             let message = document.querySelector("#message");
             message.innerHTML = result;
@@ -76,6 +74,11 @@
             var people = {};
             for (let i = 0; i < cells.length; i += 2) {
                 const cost = parseFloat(cells[i].innerText);
+
+                if (isNaN(cost)) {
+                    continue;
+                }
+
                 const splitted = cells[i+1].innerText.split(',');
 
                 subtotal += cost;
@@ -103,13 +106,20 @@
         }
 
         function addRow() {
-            let message = document.querySelector("#message");
-            let result = message.innerHTML;
-            let index = result.length - endTable.length - addRowStr.length;
+            let result = document.querySelector("#message").innerHTML;
+            let index = result.length - END_TABLE_STR.length - ADD_ROW_STR.length - PROCESS_BUTTON_STR.length;
 
-            result.substr(0, index) + newRow + result.substr(index);
+            let newRow =  `
+                    <tr>
+                    <th>Item ${NUM_ITEMS + 1}</th>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <!-- Add more cells as needed -->
+                    </tr>
+                `;
 
-            message.innerHTML = result;
+            NUM_ITEMS++;
+            message.innerHTML = result.substr(0, index) + newRow + result.substr(index);
         }
 
     </script>
